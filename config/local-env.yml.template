@@ -1,0 +1,3 @@
+CHAMELEON_HOST: "http://localhost:5000/"
+AUTH_TOKEN: extra_secret
+SHARED_SECRET: secret

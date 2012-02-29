@@ -7,7 +7,18 @@ gem 'rails', '3.2.1'
 
 gem 'pg'
 gem 'devise'
-
+gem 'faraday'
+gem 'multi_json'
+gem "compass", :git => "git://github.com/chriseppstein/compass.git"
+gem 'devise'
+gem 'liquid'
+gem 'haml'
+gem 'hpricot'
+gem 'dynamic_form'
+gem "simple_form"
+gem "omniauth"
+gem "omniauth-twitter"
+gem "twitter"
 
 # Gems used only for assets and not required
 # in production environments by default.

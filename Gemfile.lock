@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/chriseppstein/compass.git
+  revision: ef1d39952c29ba618cde04c5668945eda19b030b
+  specs:
+    compass (0.12.rc.1.ef1d399)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+
 PATH
   remote: vendor/gems/anypresence_extension-0.0.1
   specs:
@@ -33,10 +42,12 @@ GEM
     activesupport (3.2.1)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    addressable (2.2.7)
     archive-tar-minitar (0.5.2)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
+    chunky_png (1.2.5)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -51,6 +62,7 @@ GEM
       railties (~> 3.1)
       warden (~> 1.1.1)
     diff-lcs (1.1.3)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
@@ -59,7 +71,15 @@ GEM
     factory_girl_rails (1.2.0)
       factory_girl (~> 2.1.0)
       railties (>= 3.0.0)
+    faraday (0.7.6)
+      addressable (~> 2.2)
+      multipart-post (~> 1.1)
+      rack (~> 1.1)
+    fssm (0.2.8.1)
+    haml (3.1.4)
+    hashie (1.2.0)
     hike (1.2.1)
+    hpricot (0.8.6)
     i18n (0.6.0)
     journey (1.0.3)
     jquery-rails (2.0.0)
@@ -68,6 +88,7 @@ GEM
     json (1.6.5)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
+    liquid (2.3.0)
     local-env (0.0.1)
     mail (2.4.1)
       i18n (>= 0.4.0)
@@ -75,6 +96,16 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.17.2)
     multi_json (1.1.0)
+    multipart-post (1.1.5)
+    oauth (0.4.5)
+    omniauth (1.0.2)
+      hashie (~> 1.2)
+      rack
+    omniauth-oauth (1.0.0)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-twitter (0.0.8)
+      omniauth-oauth (~> 1.0)
     orm_adapter (0.0.6)
     pg (0.13.1)
     polyglot (0.3.3)
@@ -131,6 +162,10 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    simple_form (2.0.1)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
+    simple_oauth (0.1.5)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -140,6 +175,11 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    twitter (2.1.0)
+      activesupport (>= 2.3.9, < 4)
+      faraday (~> 0.7)
+      multi_json (~> 1.0)
+      simple_oauth (~> 0.1)
     tzinfo (0.3.31)
     uglifier (1.2.3)
       execjs (>= 0.3.0)
@@ -153,13 +193,24 @@ PLATFORMS
 DEPENDENCIES
   anypresence_extension (= 0.0.1)!
   coffee-rails (~> 3.2.1)
+  compass!
   devise
+  dynamic_form
   factory_girl_rails (~> 1.2.0)
+  faraday
+  haml
+  hpricot
   jquery-rails
+  liquid
   local-env
+  multi_json
+  omniauth
+  omniauth-twitter
   pg
   rails (= 3.2.1)
   rspec-rails (~> 2.8.1)
   ruby-debug19
   sass-rails (~> 3.2.3)
+  simple_form
+  twitter
   uglifier (>= 1.0.3)
