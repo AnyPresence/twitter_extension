@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120228231745) do
+ActiveRecord::Schema.define(:version => 20120229142047) do
 
   create_table "anypresence_extension_accounts", :force => true do |t|
     t.string   "application_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20120228231745) do
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
     t.string   "extension_id"
+    t.string   "field"
   end
 
   add_index "anypresence_extension_accounts", ["application_id"], :name => "index_anypresence_extension_accounts_on_application_id", :unique => true
