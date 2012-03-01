@@ -11,24 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120229142047) do
+ActiveRecord::Schema.define(:version => 20120301132802) do
 
   create_table "anypresence_extension_accounts", :force => true do |t|
     t.string   "application_id"
     t.string   "api_host"
     t.string   "api_token"
     t.string   "api_version"
-    t.integer  "sign_in_count",        :default => 0
+    t.integer  "sign_in_count",              :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.datetime "remember_created_at"
     t.string   "authentication_token"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "extension_id"
-    t.string   "field"
+    t.string   "object_field"
+    t.string   "twitter_consumer_key"
+    t.string   "twitter_consumer_secret"
+    t.string   "twitter_oauth_token"
+    t.string   "twitter_oauth_token_secret"
   end
 
   add_index "anypresence_extension_accounts", ["application_id"], :name => "index_anypresence_extension_accounts_on_application_id", :unique => true
