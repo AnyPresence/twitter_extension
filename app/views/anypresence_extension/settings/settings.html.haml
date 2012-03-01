@@ -21,9 +21,15 @@
       %div.yui3-u-1-4
         = f.label :twitter_oauth_token_secret
         = f.text_field :twitter_oauth_token_secret
-      %br
-      %br
       %div.yui3-u-1-4
         = f.label :api_host
         = f.text_field :api_host
-      = f.button :submit, "Update Account"
+      %div.yui3-u-1-4
+        = f.label :object_field
+        = f.text_field :object_field
+    %div.yui3-g
+      %div.yui3-u-1-4
+        %br
+        = link_to "Setup outgoing tweets", main_app.account_tweet_options_path(current_account)
+        %br
+        = f.button :submit, "Update Account"
