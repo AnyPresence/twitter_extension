@@ -1,0 +1,9 @@
+= link_to "Go back to settings", settings_path
+%br
+%br
+#tweet_option
+  = @tweet_option.name
+  \- #{@tweet_option.format}
+%br
+= link_to "Edit", edit_account_tweet_option_path(current_account, @tweet_option)
+= link_to "Delete", [current_account, @tweet_option], :method => :delete, :confirm => "Are you sure you want to delete this tweet option?"

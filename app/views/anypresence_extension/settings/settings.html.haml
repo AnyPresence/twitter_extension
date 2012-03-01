@@ -2,7 +2,7 @@
   = flash[:notice]
   = flash[:alert]
   
-#consume_phone_number_region
+#tweet_configuration
   = simple_form_for(current_account, :url => settings_path) do |f|
     = f.error_messages
     %br
@@ -24,12 +24,10 @@
       %div.yui3-u-1-4
         = f.label :api_host
         = f.text_field :api_host
-      %div.yui3-u-1-4
-        = f.label :object_field
-        = f.text_field :object_field
     %div.yui3-g
       %div.yui3-u-1-4
         %br
-        = link_to "Setup outgoing tweets", main_app.account_tweet_options_path(current_account)
-        %br
+        %h2
+          = link_to "Setup outgoing tweets", main_app.account_tweet_options_path(current_account)
+        
         = f.button :submit, "Update Account"

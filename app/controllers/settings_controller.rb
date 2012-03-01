@@ -1,6 +1,9 @@
 class SettingsController < AnypresenceExtension::SettingsController
   layout 'application'
   
+  before_filter :find_api_version, :only => [:provision, :perform, :publish]
+  before_filter :find_object_definition_name, :only => [:perform]
+  
   def settings
     if request.put?
       if current_account.update_attributes params[:account], :without_protection => true
@@ -23,7 +26,10 @@ class SettingsController < AnypresenceExtension::SettingsController
     end
    
     begin
-      ret = Twitter.update("I'm tweeting with @gem!!")
+      tweet_option = current_account.tweet_options.where(:name => @object_definition_name.downcase).first
+      format = tweet_option.format
+      tweet_text = AnypresenceExtensionWrapper::parse_format_string(format, @object_definition_name, params).to_s
+      ret = Twitter.update tweet_text
       Rails.logger.info "twitter response: " + ret.inspect
       render :json => { :success => true }
     rescue
