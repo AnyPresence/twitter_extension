@@ -41,3 +41,15 @@ group :test, :development do
   gem 'anypresence_extension', '0.0.1', :path => 'vendor/gems/anypresence_extension-0.0.1'
   gem 'ruby-debug19'
 end
+
+group :production do
+  gem 'pg'
+end
+
+group :test do
+  gem 'factory_girl'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'webmock'
+  gem 'vcr'
+end
