@@ -19,6 +19,7 @@ gem "simple_form"
 gem "omniauth"
 gem "omniauth-twitter"
 gem "twitter"
+gem 'anypresence_extension', '0.0.1', :path => 'vendor/gems/anypresence_extension-0.0.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -38,7 +39,6 @@ group :test, :development do
   gem "rspec-rails", "~> 2.8.1"
   gem "factory_girl_rails", "~> 1.2.0", :require => false
   gem 'local-env'
-  gem 'anypresence_extension', '0.0.1', :path => 'vendor/gems/anypresence_extension-0.0.1'
   gem 'ruby-debug19'
 end
 

@@ -1,3 +1,4 @@
 CHAMELEON_HOST: "http://localhost:5000/"
+EXTENSION_NAME: "Twitter Extension"
 AUTH_TOKEN: extra_secret
 SHARED_SECRET: secret
