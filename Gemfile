@@ -42,6 +42,10 @@ group :test, :development do
   gem 'ruby-debug19'
 end
 
+group :development do
+  gem 'heroku-rails', :git => 'git://github.com/sid137/heroku-rails.git'
+end
+
 group :production do
   gem 'pg'
 end
