@@ -2,6 +2,7 @@
 $:.push File.expand_path("../lib", __FILE__)
 require "anypresence_extension/version"
 
+
 Gem::Specification.new do |s|
   s.name        = "anypresence_extension"
   s.version     = AnypresenceExtension::VERSION
