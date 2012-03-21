@@ -2,7 +2,7 @@
 # The view layouts should be able to extract the uri from +CSS_URIS+
 CSS_URIS = []
 unless Rails.env.test?
-  url = URI.parse(ENV['CHAMELEON_HOST'] || "http://www.anypresenceapp-staging.com/") 
+  url = URI.parse(ENV['CHAMELEON_HOST']) 
   response = ""
   begin
     done_redirecting = false
