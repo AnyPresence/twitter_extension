@@ -32,7 +32,6 @@ InstalledFiles
 certificates/*
 .bundle.tddium*
 .tddium
-vendor/gems/**/*
 spec/dummy/log/*
 bin/*
 old/**
