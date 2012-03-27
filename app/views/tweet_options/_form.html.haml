@@ -1,10 +1,16 @@
 = simple_form_for [current_account, tweet_option] do |f|
   = f.error_messages
-  = f.label :name
-  = f.select :name, @available_objects, {}, {:class => 'select-menu'}
-  %br
-  
-  = f.label :format
-  = f.text_field :format, :size => 150
-  %br
-  = f.button :submit, "Submit!"
+  %div.yui3-g
+    %div.yui3-u-1-4
+      = f.label :name
+      %br
+      = f.select :name, @available_objects
+      %br
+      %br
+      %br
+      = f.label :format
+      %br
+      = f.text_field :format, :size => 150
+  %div.yui3-g
+    %div.yui3-u-1-4
+      = f.button :submit, "Submit!"

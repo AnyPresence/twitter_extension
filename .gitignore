@@ -37,7 +37,6 @@ bin/*
 old/**
 old2/**
 
-
 # ignore the mongoid folder
 mongoid
 
