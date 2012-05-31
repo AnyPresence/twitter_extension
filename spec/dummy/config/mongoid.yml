@@ -1,0 +1,11 @@
+development:
+  host: localhost
+  database: twitter_extension_development
+
+test:
+  host: localhost
+  database: twitter_extension_test
+
+production:
+  host: localhost
+  database: twitter_extension_production
