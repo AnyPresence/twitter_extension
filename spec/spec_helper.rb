@@ -5,7 +5,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'vcr'
 require 'database_cleaner'
-require 'sms_extension'
+require 'twitter_extension'
 
 require 'factory_girl'
 
