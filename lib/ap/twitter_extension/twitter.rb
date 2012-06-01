@@ -1,3 +1,5 @@
+require 'twitter'
+
 module AP
   module TwitterExtension
     module Twitter
@@ -28,24 +30,24 @@ module AP
       #  +options+ is a hash that includes: +:from+, caller's phone number; +:to+, twilio phone number to send the text to
       def twitter_perform(object_instance, options={})
         account = ::TwitterExtension::Account.first
-        consumer = AP::TwitterExtension::Sms::Consumer.new(account)
         options[:outgoing_message_format] ||= account.outgoing_message_format
         
-        Twitter.configure do |config|
-          config.consumer_key = account.twitter_consumer_key.strip
-          config.consumer_secret = account.twitter_consumer_secret.strip
-          config.oauth_token = account.twitter_oauth_token.strip
-          config.oauth_token_secret = account.twitter_oauth_token_secret.strip
+        raise "No message to tweet" if options[:outgoing_message_format].blank?
+        
+        ::Twitter.configure do |config|
+          config.consumer_key = ENV["TWITTER_EXTENSION.CONSUMER_KEY"]
+          config.consumer_secret = ENV["TWITTER_EXTENSION.CONSUMER_SECRET"]
+          config.oauth_token = ENV["TWITTER_EXTENSION.OAUTH_TOKEN"]
+          config.oauth_token_secret = ENV["TWITTER_EXTENSION.OAUTH_TOKEN_SECRET"]
         end
 
         begin
-          tweet_option = account.tweet_options.where(:name => @object_definition_name.downcase).first
-          format = tweet_option.format
-          tweet_text = AnypresenceExtensionWrapper::parse_format_string(format, @object_definition_name, params).to_s
-          ret = Twitter.update tweet_text
+          tweet_text = ::AnypresenceExtensionWrapper::parse_format_string(options[:outgoing_message_format], object_instance.class.name, object_instance.attributes).to_s
+          ret = ::Twitter.update tweet_text
           Rails.logger.info "twitter response: " + ret.inspect
         rescue
           Rails.logger.error "Unable to send tweet: " + $!.message
+          Rails.logger.error $!.backtrace.join("\n")
         end
       end
     end

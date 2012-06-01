@@ -1,0 +1,1 @@
+AP::TwitterExtension::Twitter::config_account({:outgoing_message_format => "howdy {{title}}"})

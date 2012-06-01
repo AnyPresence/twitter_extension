@@ -1,6 +1,4 @@
-require AnypresenceExtension::Engine.root.join('app', 'models', 'anypresence_extension', 'account')
-
-module AnypresenceExtension 
+module TwitterExtension 
   class Account
     include ActiveModel::MassAssignmentSecurity
     include Mongoid::Document
@@ -10,6 +8,7 @@ module AnypresenceExtension
     field :twitter_consumer_secret, type: String
     field :twitter_oauth_token, type: String
     field :twitter_oauth_token_secret, type: String
+    field :outgoing_message_format, type: String
 
   end
 end

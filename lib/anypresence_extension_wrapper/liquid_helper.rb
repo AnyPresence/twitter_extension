@@ -1,3 +1,5 @@
+require 'liquid'
+
 module AnypresenceExtensionWrapper
   
   # Parse format string from menu options
@@ -22,7 +24,7 @@ module AnypresenceExtensionWrapper
 
   # Builds a liquid drop class from the object_name
   def self.build_liquid_drop_class(object_name, fields)
-    klass = Class.new(Liquid::Drop) do
+    klass = Class.new(::Liquid::Drop) do
       define_method(:initialize) do |arg|
         arg.each do |k,v|
           instance_variable_set("@#{k}", v)
