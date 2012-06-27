@@ -35,10 +35,10 @@ module AP
         raise "No message to tweet" if options[:outgoing_message_format].blank?
         
         ::Twitter.configure do |config|
-          config.consumer_key = ENV["TWITTER_EXTENSION.CONSUMER_KEY"]
-          config.consumer_secret = ENV["TWITTER_EXTENSION.CONSUMER_SECRET"]
-          config.oauth_token = ENV["TWITTER_EXTENSION.OAUTH_TOKEN"]
-          config.oauth_token_secret = ENV["TWITTER_EXTENSION.OAUTH_TOKEN_SECRET"]
+          config.consumer_key = ENV["TWITTER_EXTENSION_CONSUMER_KEY"]
+          config.consumer_secret = ENV["TWITTER_EXTENSION_CONSUMER_SECRET"]
+          config.oauth_token = ENV["TWITTER_EXTENSION_OAUTH_TOKEN"]
+          config.oauth_token_secret = ENV["TWITTER_EXTENSION_OAUTH_TOKEN_SECRET"]
         end
 
         begin

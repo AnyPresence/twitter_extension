@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["fake@fake.local"]
   s.homepage    = ""
   s.summary     = ""
-  s.description = "Hello"
+  s.description = ""
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 
