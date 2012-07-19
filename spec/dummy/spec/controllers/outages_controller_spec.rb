@@ -67,6 +67,10 @@ describe OutagesController do
 
   describe "POST create" do
     describe "with valid params" do
+      before(:each) do 
+        @account = FactoryGirl.create(:account, :outgoing_message_format => "ooops {{title}}")
+      end
+      
       it "creates a new Outage" do
         expect {
           post :create, {:outage => valid_attributes}, valid_session
@@ -104,6 +108,10 @@ describe OutagesController do
 
   describe "PUT update" do
     describe "with valid params" do
+      before(:each) do 
+        @account = FactoryGirl.create(:account, :outgoing_message_format => "ooops {{title}}")
+      end
+      
       it "updates the requested outage" do
         outage = Outage.create! valid_attributes
         # Assuming there are no other outages in the database, this

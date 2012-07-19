@@ -9,7 +9,7 @@ PATH
       json
       liquid
       local-env
-      mongoid (= 2.4.4)
+      mongoid (>= 2.4.4)
       multi_json
       omniauth
       omniauth-twitter

@@ -7,6 +7,7 @@ module AP
         if config.empty?
           raise "Nothing to configure!"
         end
+        config = HashWithIndifferentAccess.new(config)
         account = nil
         if !::TwitterExtension::Account.all.blank?
           account = ::TwitterExtension::Account.first
@@ -30,15 +31,17 @@ module AP
       #  +options+ is a hash that includes: +:from+, caller's phone number; +:to+, twilio phone number to send the text to
       def twitter_perform(object_instance, options={})
         account = ::TwitterExtension::Account.first
+        options = HashWithIndifferentAccess.new(options)
+        debugger
         options[:outgoing_message_format] ||= account.outgoing_message_format
         
         raise "No message to tweet" if options[:outgoing_message_format].blank?
         
         ::Twitter.configure do |config|
-          config.consumer_key = ENV["TWITTER_EXTENSION_CONSUMER_KEY"]
-          config.consumer_secret = ENV["TWITTER_EXTENSION_CONSUMER_SECRET"]
-          config.oauth_token = ENV["TWITTER_EXTENSION_OAUTH_TOKEN"]
-          config.oauth_token_secret = ENV["TWITTER_EXTENSION_OAUTH_TOKEN_SECRET"]
+          config.consumer_key = ENV["TWITTER_EXTENSION_CONSUMER_KEY"] || account.twitter_consumer_key
+          config.consumer_secret = ENV["TWITTER_EXTENSION_CONSUMER_SECRET"] || account.twitter_consumer_secret
+          config.oauth_token = ENV["TWITTER_EXTENSION_OAUTH_TOKEN"] || account.twitter_oauth_token
+          config.oauth_token_secret = ENV["TWITTER_EXTENSION_OAUTH_TOKEN_SECRET"] || account.twitter_oauth_token_secret
         end
 
         begin
