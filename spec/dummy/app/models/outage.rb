@@ -4,9 +4,6 @@ class Outage
   include AP::TwitterExtension::Twitter
   
   # Field definitions
-  
-  field :"_id", as: :id, type: String
-
   field :"title", type: String
 
   field :"num_affected", type: Integer
@@ -18,6 +15,6 @@ class Outage
   def save
     super
     Rails.logger.info "sending tweet. object id: #{self.id}"
-    twitter_perform(self)
+    twitter_perform(self, {:outgoing_message_format => "cow"})
   end
 end
