@@ -50,8 +50,16 @@ GEM
     addressable (2.3.2)
     arel (3.0.2)
     builder (3.0.4)
+    columnize (0.3.6)
     crack (0.3.1)
     database_cleaner (0.9.1)
+    debugger (1.2.1)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.1.1)
+      debugger-ruby_core_source (~> 1.1.4)
+    debugger-linecache (1.1.2)
+      debugger-ruby_core_source (>= 1.1.1)
+    debugger-ruby_core_source (1.1.4)
     diff-lcs (1.1.3)
     dynamic_form (1.1.4)
     erubis (2.7.0)
@@ -163,6 +171,7 @@ PLATFORMS
 DEPENDENCIES
   actionpack
   database_cleaner
+  debugger
   factory_girl (= 3.3.0)
   jquery-rails
   mongoid (~> 3.0.6)
