@@ -4,9 +4,7 @@ module AP
   module TwitterExtension
     module Twitter
       def self.config_account(config={})
-        if config.empty?
-          raise "Nothing to configure!"
-        end
+
         config = HashWithIndifferentAccess.new(config)
         account = nil
         if !::TwitterExtension::Account.all.blank?
@@ -32,7 +30,6 @@ module AP
       def twitter_perform(object_instance, options={})
         account = ::TwitterExtension::Account.first
         options = HashWithIndifferentAccess.new(options)
-        debugger
         options[:outgoing_message_format] ||= account.outgoing_message_format
         
         raise "No message to tweet" if options[:outgoing_message_format].blank?
@@ -52,6 +49,10 @@ module AP
           Rails.logger.error "Unable to send tweet: " + $!.message
           Rails.logger.error $!.backtrace.join("\n")
         end
+      end
+      
+      def self.json_config
+        @@json ||= ActiveSupport::JSON.decode(File.read("#{File.dirname(__FILE__)}/../../../manifest.json"))
       end
     end
   end
