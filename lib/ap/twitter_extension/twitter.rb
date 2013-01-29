@@ -1,3 +1,4 @@
+require 'faraday'
 require 'twitter'
 
 module AP

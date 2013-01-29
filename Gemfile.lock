@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    twitter_extension (0.0.1)
+    twitter_extension (0.0.2)
       dynamic_form
       faraday
       haml
@@ -225,6 +225,7 @@ DEPENDENCIES
   database_cleaner
   debugger
   factory_girl (= 3.3.0)
+  faraday
   haml (= 3.1.7)
   jquery-rails
   jquery_mobile_rails (= 1.2.0)
