@@ -18,10 +18,10 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe OutagesController do
+describe Api::V1::OutagesController do
 
   # This should return the minimal set of attributes required to create a valid
-  # Outage. As you add validations to Outage, be sure to
+  # Api::V1::Outage. As you add validations to Api::V1::Outage, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
     {}
@@ -29,14 +29,14 @@ describe OutagesController do
   
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # OutagesController. Be sure to keep this updated too.
+  # Api::V1::OutagesController. Be sure to keep this updated too.
   def valid_session
     {}
   end
 
   describe "GET index" do
     it "assigns all outages as @outages" do
-      outage = Outage.create! valid_attributes
+      outage = Api::V1::Outage.create! valid_attributes
       get :index, {}, valid_session
       assigns(:outages).should eq([outage])
     end
@@ -44,7 +44,7 @@ describe OutagesController do
 
   describe "GET show" do
     it "assigns the requested outage as @outage" do
-      outage = Outage.create! valid_attributes
+      outage = Api::V1::Outage.create! valid_attributes
       get :show, {:id => outage.to_param}, valid_session
       assigns(:outage).should eq(outage)
     end
@@ -53,13 +53,13 @@ describe OutagesController do
   describe "GET new" do
     it "assigns a new outage as @outage" do
       get :new, {}, valid_session
-      assigns(:outage).should be_a_new(Outage)
+      assigns(:outage).should be_a_new(Api::V1::Outage)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested outage as @outage" do
-      outage = Outage.create! valid_attributes
+      outage = Api::V1::Outage.create! valid_attributes
       get :edit, {:id => outage.to_param}, valid_session
       assigns(:outage).should eq(outage)
     end
@@ -71,35 +71,35 @@ describe OutagesController do
         @account = FactoryGirl.create(:account, :outgoing_message_format => "ooops {{title}}")
       end
       
-      it "creates a new Outage" do
+      it "creates a new Api::V1::Outage" do
         expect {
           post :create, {:outage => valid_attributes}, valid_session
-        }.to change(Outage, :count).by(1)
+        }.to change(Api::V1::Outage, :count).by(1)
       end
 
       it "assigns a newly created outage as @outage" do
         post :create, {:outage => valid_attributes}, valid_session
-        assigns(:outage).should be_a(Outage)
+        assigns(:outage).should be_a(Api::V1::Outage)
         assigns(:outage).should be_persisted
       end
 
       it "redirects to the created outage" do
         post :create, {:outage => valid_attributes}, valid_session
-        response.should redirect_to(Outage.last)
+        response.should redirect_to(Api::V1::Outage.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved outage as @outage" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Outage.any_instance.stub(:save).and_return(false)
+        Api::V1::Outage.any_instance.stub(:save).and_return(false)
         post :create, {:outage => {}}, valid_session
-        assigns(:outage).should be_a_new(Outage)
+        assigns(:outage).should be_a_new(Api::V1::Outage)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Outage.any_instance.stub(:save).and_return(false)
+        Api::V1::Outage.any_instance.stub(:save).and_return(false)
         post :create, {:outage => {}}, valid_session
         response.should render_template("new")
       end
@@ -113,23 +113,23 @@ describe OutagesController do
       end
       
       it "updates the requested outage" do
-        outage = Outage.create! valid_attributes
+        outage = Api::V1::Outage.create! valid_attributes
         # Assuming there are no other outages in the database, this
-        # specifies that the Outage created on the previous line
+        # specifies that the Api::V1::Outage created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Outage.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+        Api::V1::Outage.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, {:id => outage.to_param, :outage => {'these' => 'params'}}, valid_session
       end
 
       it "assigns the requested outage as @outage" do
-        outage = Outage.create! valid_attributes
+        outage = Api::V1::Outage.create! valid_attributes
         put :update, {:id => outage.to_param, :outage => valid_attributes}, valid_session
         assigns(:outage).should eq(outage)
       end
 
       it "redirects to the outage" do
-        outage = Outage.create! valid_attributes
+        outage = Api::V1::Outage.create! valid_attributes
         put :update, {:id => outage.to_param, :outage => valid_attributes}, valid_session
         response.should redirect_to(outage)
       end
@@ -137,17 +137,17 @@ describe OutagesController do
 
     describe "with invalid params" do
       it "assigns the outage as @outage" do
-        outage = Outage.create! valid_attributes
+        outage = Api::V1::Outage.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Outage.any_instance.stub(:save).and_return(false)
+        Api::V1::Outage.any_instance.stub(:save).and_return(false)
         put :update, {:id => outage.to_param, :outage => {}}, valid_session
         assigns(:outage).should eq(outage)
       end
 
       it "re-renders the 'edit' template" do
-        outage = Outage.create! valid_attributes
+        outage = Api::V1::Outage.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Outage.any_instance.stub(:save).and_return(false)
+        Api::V1::Outage.any_instance.stub(:save).and_return(false)
         put :update, {:id => outage.to_param, :outage => {}}, valid_session
         response.should render_template("edit")
       end
@@ -156,16 +156,16 @@ describe OutagesController do
 
   describe "DELETE destroy" do
     it "destroys the requested outage" do
-      outage = Outage.create! valid_attributes
+      outage = Api::V1::Outage.create! valid_attributes
       expect {
         delete :destroy, {:id => outage.to_param}, valid_session
-      }.to change(Outage, :count).by(-1)
+      }.to change(Api::V1::Outage, :count).by(-1)
     end
 
     it "redirects to the outages list" do
-      outage = Outage.create! valid_attributes
+      outage = Api::V1::Outage.create! valid_attributes
       delete :destroy, {:id => outage.to_param}, valid_session
-      response.should redirect_to(outages_url)
+      response.should redirect_to(api_v1_outages_url)
     end
   end
 
