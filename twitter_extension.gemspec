@@ -21,13 +21,13 @@ Gem::Specification.new do |s|
   s.add_dependency "mongoid", "~> 3.0.6"
   s.add_dependency "liquid"
   s.add_dependency "local-env"
-  s.add_dependency "faraday"
+  s.add_dependency "faraday", '~> 0.8.4'
   s.add_dependency "dynamic_form"
   s.add_dependency "simple_form"
   s.add_dependency "kaminari", '~> 0.14.1'
   s.add_dependency "haml"
   s.add_dependency "hpricot"
-  s.add_dependency "twitter"
+  s.add_dependency "twitter", '~> 4.5.0'
   s.add_dependency "omniauth"
   s.add_dependency "omniauth-twitter"
   
