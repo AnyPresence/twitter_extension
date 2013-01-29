@@ -1,0 +1,40 @@
+{
+  "type": "ServiceInstance::RailsEngineGem",
+  "name": "Twitter Notifier",
+  "filename": "twitter_extension",
+  "version": "0.0.2",
+  "mount_name": "TwitterExtension::Engine",
+  "mount_endpoint": "/twitter_extension",
+  "model_configuration": {
+    "included_module": "AP::TwitterExtension::Twitter",
+    "fire_method": "twitter_perform",
+    "parameters": ["required_configuration"],
+    "lifecyle_hooks": {
+      "twitter_perform": ["after_save", "after_create", "after_update", "after_destroy"]
+    },
+    "required_configuration": {
+      "twitter_consumer_key": {
+        "type": "String",
+        "description": "Twitter consumer key"
+      },
+      "twitter_consumer_secret": {
+         "type": "String",
+         "description": "Twitter consumer secret"
+      },
+      "twitter_oauth_token": {
+         "type": "String",
+         "description": "Twitter oauth token"
+      },
+      "twitter_oauth_token_secret": {
+         "type": "String",
+         "description": "Twitter oauth secret token"
+       }
+    },
+    "object_definition_level_configuration": {
+       "outgoing_message_format": {
+         "type": "String",
+         "description": "The template for the twitter message..."
+       }
+    }
+  }
+}

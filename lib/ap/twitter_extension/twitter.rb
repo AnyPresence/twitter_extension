@@ -54,6 +54,7 @@ module AP
       def self.json_config
         @@json ||= ActiveSupport::JSON.decode(File.read("#{File.dirname(__FILE__)}/../../../manifest.json"))
       end
+      
     end
   end
 end

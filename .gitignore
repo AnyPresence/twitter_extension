@@ -36,6 +36,7 @@ spec/dummy/log/*
 bin/*
 old/**
 old2/**
+spec/dummy/public/assets/
 
 # ignore the mongoid folder
 mongoid
