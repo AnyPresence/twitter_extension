@@ -1,4 +1,3 @@
-module TwitterExtension
-  class ApplicationController < ActionController::Base
-  end
+class TwitterExtension::ApplicationController < ApplicationController
+  layout 'layouts/admin'
 end
