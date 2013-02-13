@@ -1,3 +1,12 @@
-.text-info
-  %h3 Twitter Extension Settings
-  %h3 No configuration options available
+%ul.breadcrumb
+  %li
+    = link_to 'Home', main_app.admin_root_path
+    %span.divider /
+  %li
+    = link_to 'Extensions', main_app.admin_extensions_path
+    %span.divider /
+  %li.active Twitter
+
+.alert.alert-info
+  %h1 Twitter
+  %p The Twitter extension has no settings.
