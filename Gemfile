@@ -5,8 +5,6 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
-ruby '1.9.3'
-
 gem "jquery-rails"
 gem 'mongoid', '~> 3.0.6'
 gem "resque"
@@ -35,4 +33,4 @@ end
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-gem 'debugger'
+gem 'debugger', '1.5.0'
